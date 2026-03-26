@@ -100,6 +100,18 @@ def question_view(request):
             'score': request.session.get('current_score', 0),
         }
         return render(request, 'quiz/quiz.html', context)
+def quit_quiz(request):
+    player_name = request.session.get('player_name')
+    score = request.session.get('current_score', 0)
+    if player_name is not None:
+        LeaderboardEntry.objects.create(player_name=player_name, score=score)
+        request.session['final_score'] = score
+        request.session['final_player'] = player_name
+    request.session.pop('player_name', None)
+    request.session.pop('remaining_questions', None)
+    request.session.pop('current_question_index', None)
+    request.session.pop('current_score', None)
+    return redirect('quiz:result')
 
 def result_view(request):
     player_name = request.session.pop('final_player', request.session.get('player_name', 'Anonymous'))
