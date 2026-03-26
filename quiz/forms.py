@@ -12,16 +12,16 @@ class SpeciesForm(forms.ModelForm):
     def clean_name(self):
         name = self.cleaned_data.get('name')
         if name and len(name) < 2:
-            raise forms.ValidationError('Name must be at least 2 characters long.')
+            raise forms.ValidationError('Название должно содержать не менее 2 символов.')
         if name and name.strip() == '':
-            raise forms.ValidationError('Name cannot be empty or whitespace.')
+            raise forms.ValidationError('Название не может быть пустым.')
         instance = getattr(self, 'instance', None)
         if instance and instance.pk:
             if Species.objects.exclude(pk=instance.pk).filter(name=name).exists():
-                raise forms.ValidationError('A species with this name already exists.')
+                raise forms.ValidationError('Этот вид уже добавлен.')
         else:
             if Species.objects.filter(name=name).exists():
-                raise forms.ValidationError('A species with this name already exists.')
+                raise forms.ValidationError('Этот вид уже добавлен.')
         return name
 
 class QuestionForm(forms.ModelForm):
@@ -37,7 +37,7 @@ class QuestionForm(forms.ModelForm):
         species = cleaned_data.get('species')
         correct = cleaned_data.get('correct_answer')
         if species and correct and species.name != correct:
-            raise forms.ValidationError('Correct answer must match the selected species name.')
+            raise forms.ValidationError('Правильный ответ должен соответствовать названию выбранного вида.')
         text = cleaned_data.get('text')
         if species and text:
             instance = getattr(self, 'instance', None)
@@ -45,7 +45,7 @@ class QuestionForm(forms.ModelForm):
             if instance and instance.pk:
                 qs = qs.exclude(pk=instance.pk)
             if qs.exists():
-                raise forms.ValidationError('A question with this text already exists for this species.')
+                raise forms.ValidationError('Такой вопрос уже существует для данного вида.')
         return cleaned_data
 
 class NameForm(forms.Form):
@@ -53,5 +53,5 @@ class NameForm(forms.Form):
         max_length=100,
         label='Your name',
         widget=forms.TextInput(attrs={'class': 'form-control'}),
-        error_messages={'required': 'Please enter your name to start the quiz.'}
+        error_messages={'required': 'Надо ввести имя, чтобы начать.'}
     )

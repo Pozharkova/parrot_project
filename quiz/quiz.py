@@ -12,7 +12,7 @@ class SpeciesForm(forms.ModelForm):
     def clean_name(self):
         name = self.cleaned_data.get('name')
         if name and len(name) < 2:
-            raise forms.ValidationError('Name must be at least 2 characters long.')
+            raise forms.ValidationError('Название должно содержать не менее 2 символов.')
         return name
 
 class QuestionForm(forms.ModelForm):
@@ -28,13 +28,13 @@ class QuestionForm(forms.ModelForm):
         species = cleaned_data.get('species')
         correct = cleaned_data.get('correct_answer')
         if species and correct and species.name != correct:
-            raise forms.ValidationError('Correct answer must match the selected species name.')
+            raise forms.ValidationError('Правильный ответ должен соответствовать названию выбранного вида.')
         return cleaned_data
 
 class NameForm(forms.Form):
     player_name = forms.CharField(
         max_length=100,
-        label='Your name',
+        label='Имя',
         widget=forms.TextInput(attrs={'class': 'form-control'}),
-        error_messages={'required': 'Please enter your name to start the quiz.'}
+        error_messages={'required': 'Надо ввести имя, чтобы начать.'}
     )

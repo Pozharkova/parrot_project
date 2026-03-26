@@ -1,0 +1,395 @@
+[
+  {
+    "model": "quiz.species",
+    "pk": 1,
+    "fields": {
+      "name": "Гиацинтовый ара",
+      "scientific_name": "Anodorhynchus hyacinthinus",
+      "description": "Самый крупный по длине вид среди попугаев. Оперение сине-кобальтовое. Ареал: центральная и восточная части Южной Америки.",
+      "image_url": "/static/quiz/images/hya_macaw.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 2,
+    "fields": {
+      "name": "Жако",
+      "scientific_name": "Psittacus erithacus",
+      "description": "Вид, характеризующийся высокими когнитивными способностями и способностью к звукоподражанию. Естественный ареал — тропические леса Западной и Центральной Африки.",
+      "image_url": "/static/quiz/images/african_grey.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 3,
+    "fields": {
+      "name": "Корелла",
+      "scientific_name": "Nymphicus hollandicus",
+      "description": "Небольшой попугай с хохолком на голове. Распространён в Австралии. Часто содержится в качестве домашнего питомца.",
+      "image_url": "/static/quiz/images/cockatiel.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 4,
+    "fields": {
+      "name": "Солнечная аратинга",
+      "scientific_name": "Aratinga solstitialis",
+      "description": "Попугай средних размеров с ярко-жёлтым и оранжевым оперением. Обитает в северо-восточной части Южной Америки.",
+      "image_url": "/static/quiz/images/sun_conure.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 5,
+    "fields": {
+      "name": "Волнистый попугайчик",
+      "scientific_name": "Melopsittacus undulatus",
+      "description": "Мелкий вид попугая, распространённый в Австралии. Окраска в природе — зелёная с чёрным волнистым рисунком.",
+      "image_url": "/static/quiz/images/budgerigar.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 6,
+    "fields": {
+      "name": "Розовый какаду",
+      "scientific_name": "Lophochroa leadbeateri",
+      "description": "Среднего размера какаду с розово-белым оперением и красно-жёлтым хохолком. Эндемик Австралии.",
+      "image_url": "/static/quiz/images/major_mitchells_cockatoo.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 7,
+    "fields": {
+      "name": "Чёрношапочный лори",
+      "scientific_name": "Lorius lory",
+      "description": "Попугай с преобладающей красной окраской, чёрной шапочкой и зелёными крыльями. Обитает в Новой Гвинее и на близлежащих островах.",
+      "image_url": "/static/quiz/images/black_capped_lory.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 8,
+    "fields": {
+      "name": "Венесуэльский амазон",
+      "scientific_name": "Amazona amazonica",
+      "description": "Попугай зелёного цвета с жёлтыми отметинами на голове. Ареал — север Южной Америки и бассейн Амазонки.",
+      "image_url": "/static/quiz/images/amazona_amazonica.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 9,
+    "fields": {
+      "name": "Кеа",
+      "scientific_name": "Nestor notabilis",
+      "description": "Крупный попугай с оливково-зелёным оперением, оранжево-красным подхвостьем и длинным изогнутым клювом. Эндемик Новой Зеландии.",
+      "image_url": "/static/quiz/images/kea.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 10,
+    "fields": {
+      "name": "Неразлучник Фишера",
+      "scientific_name": "Agapornis fischeri",
+      "description": "Мелкий попугай с зелёным телом, оранжевым лбом и голубым надхвостьем. Обитает в Танзании и Кении.",
+      "image_url": "/static/quiz/images/fishers_lovebird.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 11,
+    "fields": {
+      "name": "Сульфурный какаду",
+      "scientific_name": "Cacatua galerita",
+      "description": "Крупный белый какаду с жёлтым хохолком. Широко распространён в Австралии и Новой Гвинее.",
+      "image_url": "/static/quiz/images/sulfur_crested_cockatoo.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 12,
+    "fields": {
+      "name": "Эклектус",
+      "scientific_name": "Eclectus roratus",
+      "description": "Вид с выраженным половым диморфизмом: самцы зелёные, самки красные с синим. Обитает на Молуккских островах, Новой Гвинее и в северной Австралии.",
+      "image_url": "/static/quiz/images/eclectus.jpg"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 13,
+    "fields": {
+      "name": "Сенегальский попугай",
+      "scientific_name": "Poicephalus senegalus",
+      "description": "Попугай зелёной окраски с серой головой и жёлто-оранжевым брюшком. Ареал — Западная Африка.",
+      "image_url": "/static/quiz/images/senegal_parrot.jpg"
+    }
+  },
+  
+  {
+    "model": "quiz.question",
+    "pk": 1,
+    "fields": {
+      "species": 1,
+      "text": "Какой вид попугая является самым крупным по длине и имеет сине-кобальтовое оперение?",
+      "correct_answer": "Гиацинтовый ара"
+    }
+  },
+  {
+    "model": "quiz.species",
+    "pk": 14,
+    "fields": {
+      "name": "Белобрюхий попугай",
+      "scientific_name": "Pionites leucogaster",
+      "description": "Попугай средних размеров с преимущественно зелёной спиной и крыльями, жёлто-оранжевой грудью и белым брюхом. Обитает в лесах Амазонии.",
+      "image_url": "/static/quiz/images/caique.jpg"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 2,
+    "fields": {
+      "species": 1,
+      "text": "Какой вид известен как «синий ара» и является эндемиком Бразилии?",
+      "correct_answer": "Гиацинтовый ара"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 3,
+    "fields": {
+      "species": 2,
+      "text": "Какой вид попугая характеризуется высокими когнитивными способностями и способностью к звукоподражанию?",
+      "correct_answer": "Жако"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 4,
+    "fields": {
+      "species": 2,
+      "text": "Какой вид считается одним из самых умных среди птиц?",
+      "correct_answer": "Жако"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 5,
+    "fields": {
+      "species": 3,
+      "text": "Какой небольшой попугай с хохолком является самым маленьким представителем семейства какаду?",
+      "correct_answer": "Корелла"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 6,
+    "fields": {
+      "species": 3,
+      "text": "Какой австралийский попугай часто содержится в качестве домашнего питомца и обладает характерным хохолком?",
+      "correct_answer": "Корелла"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 7,
+    "fields": {
+      "species": 4,
+      "text": "Какой вид попугая имеет преимущественно жёлто-оранжевое оперение?",
+      "correct_answer": "Солнечная аратинга"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 8,
+    "fields": {
+      "species": 4,
+      "text": "Aratinga solstitialis — это научное название какого вида?",
+      "correct_answer": "Солнечная аратинга"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 9,
+    "fields": {
+      "species": 5,
+      "text": "Какой мелкий попугай, распространённый в Австралии, имеет в природе зелёную окраску с чёрным волнистым рисунком?",
+      "correct_answer": "Волнистый попугайчик"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 10,
+    "fields": {
+      "species": 5,
+      "text": "Melopsittacus undulatus — это научное название какого вида?",
+      "correct_answer": "Волнистый попугайчик"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 11,
+    "fields": {
+      "species": 6,
+      "text": "Какой вид какаду имеет розово-белое оперение и красно-жёлтый хохолок?",
+      "correct_answer": "Розовый какаду"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 12,
+    "fields": {
+      "species": 6,
+      "text": "Lophochroa leadbeateri — это научное название какого вида?",
+      "correct_answer": "Розовый какаду"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 13,
+    "fields": {
+      "species": 7,
+      "text": "Какой вид попугая имеет красную окраску, чёрную шапочку и зелёные крылья?",
+      "correct_answer": "Чёрношапочный лори"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 14,
+    "fields": {
+      "species": 7,
+      "text": "Lorius lory — это научное название какого вида?",
+      "correct_answer": "Чёрношапочный лори"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 15,
+    "fields": {
+      "species": 8,
+      "text": "Какой вид попугая зелёного цвета с жёлтыми отметинами на голове?",
+      "correct_answer": "Венесуэльский амазон"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 16,
+    "fields": {
+      "species": 8,
+      "text": "Amazona amazonica — это научное название какого вида?",
+      "correct_answer": "Венесуэльский амазон"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 17,
+    "fields": {
+      "species": 9,
+      "text": "Какой вид попугая имеет оливково-зелёное оперение и оранжево-красное подхвостье?",
+      "correct_answer": "Кеа"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 18,
+    "fields": {
+      "species": 9,
+      "text": "Какой эндемичный вид Новой Зеландии отличается длинным изогнутым клювом и оливково-зелёной окраской?",
+      "correct_answer": "Кеа"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 19,
+    "fields": {
+      "species": 10,
+      "text": "Какой мелкий попугай с зелёным телом, оранжевым лбом и голубым надхвостьем обитает в Восточной Африке?",
+      "correct_answer": "Неразлучник Фишера"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 20,
+    "fields": {
+      "species": 10,
+      "text": "Agapornis fischeri — это научное название какого вида?",
+      "correct_answer": "Неразлучник Фишера"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 21,
+    "fields": {
+      "species": 11,
+      "text": "Какой крупный белый какаду с жёлтым хохолком широко распространён в Австралии и Новой Гвинее?",
+      "correct_answer": "Сульфурный какаду"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 22,
+    "fields": {
+      "species": 11,
+      "text": "Cacatua galerita — это научное название какого вида?",
+      "correct_answer": "Сульфурный какаду"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 23,
+    "fields": {
+      "species": 12,
+      "text": "Какой вид попугая характеризуется выраженным половым диморфизмом: самцы зелёные, самки красные?",
+      "correct_answer": "Эклектус"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 24,
+    "fields": {
+      "species": 12,
+      "text": "Eclectus roratus — это научное название какого вида?",
+      "correct_answer": "Эклектус"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 25,
+    "fields": {
+      "species": 13,
+      "text": "Какой вид попугая зелёной окраски с серой головой и жёлто-оранжевым брюшком обитает в Западной Африке?",
+      "correct_answer": "Сенегальский попугай"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 26,
+    "fields": {
+      "species": 13,
+      "text": "Poicephalus senegalus — это научное название какого вида?",
+      "correct_answer": "Сенегальский попугай"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 27,
+    "fields": {
+      "species": 14,
+      "text": "Какой вид попугая имеет зелёную спину, жёлто-оранжевую грудь и белое брюхо?",
+      "correct_answer": "Белобрюхий попугай"
+    }
+  },
+  {
+    "model": "quiz.question",
+    "pk": 28,
+    "fields": {
+      "species": 14,
+      "text": "Pionites leucogaster — это научное название какого вида?",
+      "correct_answer": "Белобрюхий попугай"
+    }
+  }
+]
