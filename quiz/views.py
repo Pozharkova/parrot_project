@@ -8,22 +8,15 @@ from django.contrib import messages
 from .models import Species, Question, LeaderboardEntry
 from .forms import SpeciesForm, QuestionForm, NameForm
 
-"""def get_parrot_image():
-    try:
-        url = 'https://source.unsplash.com/featured/?parrot'
-        return url
-    except:
-        return 'https://via.placeholder.com/400x300?text=Parrot+Image'"""
 def get_parrot_image():
-    """Return a random local parrot image or a placeholder."""
+   
     images_dir = os.path.join(settings.BASE_DIR, 'quiz', 'static', 'quiz', 'images')
     if os.path.exists(images_dir):
         images = [f for f in os.listdir(images_dir)
                   if f.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))]
         if images:
             return settings.STATIC_URL + 'quiz/images/' + random.choice(images)
-    # Если нет локальных изображений – заглушка
-    return 'https://via.placeholder.com/400x300?text=Parrot+Image'
+    
 def index(request):
     image_url = get_parrot_image()
     form = NameForm()
@@ -53,10 +46,20 @@ def question_view(request):
     idx = request.session.get('current_question_index', 0)
 
     if not player_name or idx >= len(remaining):
+        score = request.session.get('current_score', 0)
+        if player_name and score > 0:
+            LeaderboardEntry.objects.create(player_name=player_name, score=score)
+            request.session['final_score'] = score
+            request.session['final_player'] = player_name
+        request.session.pop('player_name', None)
+        request.session.pop('remaining_questions', None)
+        request.session.pop('current_question_index', None)
+        request.session.pop('current_score', None)
         return redirect('quiz:result')
 
     qid = remaining[idx]
     question = get_object_or_404(Question, id=qid)
+
     all_species = list(Species.objects.values_list('name', flat=True))
     if question.correct_answer not in all_species:
         all_species.append(question.correct_answer)
@@ -67,13 +70,28 @@ def question_view(request):
         if selected == question.correct_answer:
             request.session['current_score'] += 1
             request.session['current_question_index'] += 1
+            if request.session['current_question_index'] >= len(remaining):
+                player_name = request.session.get('player_name')
+                score = request.session.get('current_score')
+                LeaderboardEntry.objects.create(player_name=player_name, score=score)
+                request.session['final_score'] = score
+                request.session['final_player'] = player_name
+                request.session.pop('player_name', None)
+                request.session.pop('remaining_questions', None)
+                request.session.pop('current_question_index', None)
+                request.session.pop('current_score', None)
+                return redirect('quiz:result')
             return redirect('quiz:question')
         else:
             score = request.session.get('current_score', 0)
+            player_name = request.session.get('player_name')
             LeaderboardEntry.objects.create(player_name=player_name, score=score)
+            request.session['final_score'] = score
+            request.session['final_player'] = player_name
             request.session.pop('remaining_questions', None)
             request.session.pop('current_question_index', None)
             request.session.pop('current_score', None)
+            request.session.pop('player_name', None)
             return redirect('quiz:result')
     else:
         context = {
@@ -84,9 +102,8 @@ def question_view(request):
         return render(request, 'quiz/quiz.html', context)
 
 def result_view(request):
-    player_name = request.session.get('player_name', 'Anonymous')
-    score = request.session.get('current_score', 0)
-    # Clear session data if not cleared
+    player_name = request.session.pop('final_player', request.session.get('player_name', 'Anonymous'))
+    score = request.session.pop('final_score', request.session.get('current_score', 0))
     request.session.pop('player_name', None)
     request.session.pop('remaining_questions', None)
     request.session.pop('current_question_index', None)
@@ -94,7 +111,7 @@ def result_view(request):
     return render(request, 'quiz/result.html', {'player_name': player_name, 'score': score})
 
 def leaderboard(request):
-    entries = LeaderboardEntry.objects.all()[:20]  # top 20
+    entries = LeaderboardEntry.objects.all()[:20]  
     return render(request, 'quiz/leaderboard.html', {'entries': entries})
 
 def species_list(request):
