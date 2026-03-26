@@ -1,0 +1,24 @@
+{% extends 'quiz/base.html' %}
+{% block title %}Quiz in progress{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Вопрос {{ score|add:1 }} | Балл: {{ score }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ question.text }}</h5>
+        <form method="post">
+            {% csrf_token %}
+            {% for choice in choices %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="answer" id="choice_{{ forloop.counter }}" value="{{ choice }}" required>
+                    <label class="form-check-label" for="choice_{{ forloop.counter }}">
+                        {{ choice }}
+                    </label>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary mt-3">Ответить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
