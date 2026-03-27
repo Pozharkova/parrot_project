@@ -18,6 +18,10 @@
                 </div>
             {% endfor %}
             <button type="submit" class="btn btn-primary mt-3">Ответить</button>
+         </form>
+        <form method="post" action="{% url 'quiz:quit' %}" class="mt-3">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Завершить и сохранить</button>
         </form>
     </div>
 </div>

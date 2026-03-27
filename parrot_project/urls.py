@@ -1,3 +1,5 @@
+"""Root URL configuration for parrot_project."""
+
 from django.contrib import admin
 from django.urls import path, include
 
