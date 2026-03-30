@@ -3,7 +3,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'quiz'   # pylint: disable=invalid-name
+app_name = 'quiz'
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -18,4 +18,8 @@ urlpatterns = [
     path('question/create/', views.question_create, name='question_create'),
     path('question/<int:pk>/edit/', views.question_edit, name='question_edit'),
     path('quit/', views.quit_quiz, name='quit'),
+
+    path('photo-start/', views.start_photo_quiz, name='photo_start'),
+    path('photo-question/', views.photo_question_view, name='photo_question'),
+    path('photo-quit/', views.photo_quit, name='photo_quit'),
 ]
