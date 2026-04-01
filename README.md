@@ -20,20 +20,22 @@ pip install -r requirements.txt
 Создать файл .env в корне проекта (см. раздел «Корректное хранение секретов и токенов»).
 
 Выполнить миграции:
+```
 bash
 python manage.py migrate
 ```
 Создать суперпользователя для доступа администратора:
+```
 bash
 python manage.py createsuperuser
 ```
 Загрузить тестовые данные (виды и вопросы):
-
+```
 bash
 python manage.py loaddata initial_data.json
 ```
 Запустить сервер разработки:
-
+```
 bash
 python manage.py runserver
 ```
