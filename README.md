@@ -57,14 +57,15 @@ python -c "from django.core.management.utils import get_random_secret_key; print
 CRUD для видов – добавление видов и вопросов к ним, редактирование
 
 **Структура проекта**
+```
 parrot_project/
-├── manage.py\\
-├── requirements.txt\\
-├── README.md\\
-├── .env                     # секреты (не в репозитории)\\
-├── .gitignore\\
-├── initial_data.json    \\    
-├── parrot_project/          
+├── manage.py
+├── requirements.txt
+├── README.md
+├── .env                     # секреты (не в репозитории)
+├── .gitignore
+├── initial_data.json     
+├── parrot_project         
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
@@ -88,4 +89,6 @@ parrot_project/
     │   └── question_form.html
     └── static/quiz/
         ├── styles.css
-        └── images/ 
+        └── images/
+```
+
