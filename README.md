@@ -22,17 +22,21 @@ pip install -r requirements.txt
 Выполнить миграции:
 bash
 python manage.py migrate
+```
 Создать суперпользователя для доступа администратора:
 bash
 python manage.py createsuperuser
+```
 Загрузить тестовые данные (виды и вопросы):
 
 bash
 python manage.py loaddata initial_data.json
+```
 Запустить сервер разработки:
 
 bash
 python manage.py runserver
+```
 Открыть браузер по адресу http://127.0.0.1:8000/ и начать игру.
 
 Корректное хранение секретов и токенов
