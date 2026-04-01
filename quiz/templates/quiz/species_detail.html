@@ -16,7 +16,8 @@
                 <p class="card-text"><em>{{ species.scientific_name }}</em></p>
                 <p class="card-text">{{ species.description }}</p>
                 <a href="{% url 'quiz:species_edit' species.pk %}" class="btn btn-warning">Редактировать</a>
-                <a href="{% url 'quiz:species_list' %}" class="btn btn-secondary">Вернуться к списку</a>
+                <a href="{% url 'quiz:question_create' %}?species={{ species.pk }}" class="btn btn-success">Добавить вопрос</a>
+                <a href="{% url 'quiz:species_list' %}" class="btn btn-secondary">Назад к списку</a>
             </div>
         </div>
     </div>

@@ -2,12 +2,11 @@
 
 import random
 import os
-import json
 from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Species, Question, LeaderboardEntry
-from .forms import SpeciesForm, NameForm
+from .forms import QuestionForm, SpeciesForm, NameForm
 
 def get_parrot_image():
     """Return random local parrot image or empty string."""
@@ -345,3 +344,23 @@ def species_edit(request, pk):
     else:
         form = SpeciesForm(instance=species)
     return render(request, 'quiz/species_form.html', {'form': form})
+def question_create(request):
+    """Create a new question."""
+    initial = {}
+    species_id = request.GET.get('species')
+    if species_id:
+        try:
+            species = Species.objects.get(pk=species_id)
+            initial['species'] = species
+        except Species.DoesNotExist:
+            pass
+
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Вопрос добавлен.')
+            return redirect('quiz:species_list')
+    else:
+        form = QuestionForm(initial=initial)
+    return render(request, 'quiz/question_form.html', {'form': form})

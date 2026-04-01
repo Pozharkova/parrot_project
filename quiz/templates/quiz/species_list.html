@@ -2,7 +2,8 @@
 {% block title %}Parrot Species{% endblock %}
 {% block content %}
 <h2>Виды попугаев</h2>
-<a href="{% url 'quiz:species_create' %}" class="btn btn-success mb-3">Добавить новый</a>
+<a href="{% url 'quiz:species_create' %}" class="btn btn-success mb-3">Добавить вид</a>
+<a href="{% url 'quiz:question_create' %}" class="btn btn-info mb-3">Добавить вопрос</a>
 <div class="row">
     {% for s in species %}
     <div class="col-md-4 mb-3">
@@ -15,13 +16,14 @@
             <div class="card-body">
                 <h5 class="card-title">{{ s.name }}</h5>
                 <p class="card-text">{{ s.description|truncatewords:20 }}</p>
-                <a href="{% url 'quiz:species_detail' s.pk %}" class="btn btn-primary">Детали</a>
+                <a href="{% url 'quiz:species_detail' s.pk %}" class="btn btn-primary">Подробнее</a>
                 <a href="{% url 'quiz:species_edit' s.pk %}" class="btn btn-secondary">Редактировать</a>
+                <a href="{% url 'quiz:question_create' %}?species={{ s.pk }}" class="btn btn-success">Добавить вопрос</a>
             </div>
         </div>
     </div>
     {% empty %}
-    <p>Пока еще нет видов.</p>
+    <p>Видов пока нет.</p>
     {% endfor %}
 </div>
 {% endblock %}

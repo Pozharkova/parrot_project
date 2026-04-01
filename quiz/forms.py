@@ -25,10 +25,10 @@ class SpeciesForm(forms.ModelForm):
             raise forms.ValidationError('Название не может быть пустым.')
         instance = getattr(self, 'instance', None)
         if instance and instance.pk:
-            if Species.objects.exclude(pk=instance.pk).filter(name=name).exists():   # pylint: disable=no-member
+            if Species.objects.exclude(pk=instance.pk).filter(name=name).exists():   
                 raise forms.ValidationError('Этот вид уже добавлен.')
         else:
-            if Species.objects.filter(name=name).exists():   # pylint: disable=no-member
+            if Species.objects.filter(name=name).exists():  
                 raise forms.ValidationError('Этот вид уже добавлен.')
         return name
 
@@ -72,3 +72,4 @@ class NameForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         error_messages={'required': 'Надо ввести имя, чтобы начать.'}
     )
+    
